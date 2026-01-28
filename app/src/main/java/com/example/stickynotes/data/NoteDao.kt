@@ -9,14 +9,14 @@ interface NoteDao {
     fun getAllNotes(): Flow<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNote(note: Note)
+    suspend fun insertNote(note: Note): Long
 
     @Update
-    suspend fun updateNote(note: Note)
+    suspend fun updateNote(note: Note): Int
 
     @Delete
-    suspend fun deleteNote(note: Note)
+    suspend fun deleteNote(note: Note): Int
 
     @Query("DELETE FROM notes")
-    suspend fun deleteAllNotes()
+    suspend fun deleteAllNotes(): Int
 }

@@ -63,6 +63,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 } else {
                     context.startService(intent)
                 }
+                (context as? android.app.Activity)?.moveTaskToBack(true)
             }) {
                 Text("Start Floating Note")
             }
